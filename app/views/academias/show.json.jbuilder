@@ -1,0 +1,1 @@
+json.partial! "academias/academia", academia: @academia

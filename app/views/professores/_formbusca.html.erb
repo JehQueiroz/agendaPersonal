@@ -1,0 +1,14 @@
+<%= form_tag(academias_path, method: "get") do %>
+<%= label_tag(:nome, "Nome:") %>
+<%= text_field_tag(:nome, @nome) %>
+<%= label_tag(:academia_id, "Nome da academia:") %>
+<%= text_field_tag(:academia_id, @academia_id) %>
+<br>
+<%= submit_tag 'Filtrar' %>
+<% end %>
+
+
+
+
+
+

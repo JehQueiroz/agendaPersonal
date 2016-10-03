@@ -1,0 +1,8 @@
+<%= form_tag(horarios_path, method: "get") do %>
+<%= label_tag(:professor_id, "Nome do Professor:") %>
+<%= text_field_tag(:professor_id, @professor_id) %>
+<%= label_tag(:academia_id, "Nome da Academia:") %>
+<%= text_field_tag(:academia_id, @academia_id) %>
+<br>
+<%= submit_tag 'Filtrar' %>
+<% end %>

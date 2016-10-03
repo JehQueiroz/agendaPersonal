@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  telefone: 1
+  endereco: MyString
+  cpf: 1
+  academia_id: 
+
+two:
+  nome: MyString
+  telefone: 1
+  endereco: MyString
+  cpf: 1
+  academia_id: 

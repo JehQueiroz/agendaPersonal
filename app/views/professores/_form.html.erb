@@ -1,0 +1,47 @@
+<%= form_for(@professor) do |f| %>
+  <% if @professor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@professor.errors.count, "error") %> prohibited this professor from being saved:</h2>
+
+      <ul>
+      <% @professor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :telefone %><br>
+    <%= f.number_field :telefone %>
+  </div>
+  <div class="field">
+    <%= f.label :endereco %><br>
+    <%= f.text_field :endereco %>
+  </div>
+  <div class="field">
+    <%= f.label :cpf %><br>
+    <%= f.number_field :cpf %>
+  </div>
+  <div class="field">
+    <%= f.label :academia_id %><br>
+    <%= f.select :academia_id, options_for_select(Academia.all.map{|m|[m.nome,
+m.id]},f.object.academia_id) %>
+</div>
+
+<div>
+  <%= f.label :foto %>
+  <%= image_tag @professor.foto_url, class: 'foto' if @professor.foto? %>
+  <%= f.file_field :foto, label: 'Foto' , input_html: {accept: ('application/jpg') } %>
+<br/>
+</div>
+
+  <div class="actions">
+<%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+<%= link_to ' Voltar', professores_path , class: "btn btn-default " %>
+</div>
+<% end %>

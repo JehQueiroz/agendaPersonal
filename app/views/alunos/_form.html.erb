@@ -1,0 +1,39 @@
+<%= form_for(@aluno) do |f| %>
+  <% if @aluno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+
+      <ul>
+      <% @aluno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :telefone %><br>
+    <%= f.number_field :telefone %>
+  </div>
+  <div class="field">
+    <%= f.label :endereco %><br>
+    <%= f.text_field :endereco %>
+  </div>
+  <div class="field">
+    <%= f.label :cpf %><br>
+    <%= f.number_field :cpf %>
+  </div>
+  <div>
+  <%= f.label :foto %>
+  <%= image_tag @aluno.foto_url, class: 'foto' if @aluno.foto? %>
+  <%= f.file_field :foto, label: 'Foto' , input_html: {accept: ('application/jpg') } %>
+<br/>
+ <div class="actions">
+<%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+<%= link_to ' Voltar', alunos_path , class: "btn btn-default " %>
+</div>
+<% end %>

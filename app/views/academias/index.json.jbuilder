@@ -1,0 +1,1 @@
+json.array! @academias, partial: 'academias/academia', as: :academia

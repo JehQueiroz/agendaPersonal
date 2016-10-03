@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hora: 1
+  Professor_id: 
+  Academia_id: 
+
+two:
+  hora: 1
+  Professor_id: 
+  Academia_id: 

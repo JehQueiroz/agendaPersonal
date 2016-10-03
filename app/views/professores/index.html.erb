@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Professores</h1>
+<%= image_tag 'joelho.gif', :width => '15%', :height => '15%'  %>
+<hr/> 
+  <%= render 'formbusca' %>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Telefone</th>
+      <th>Endereco</th>
+      <th>Cpf</th>
+      <th>Academia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @professores.each do |professor| %>
+      <tr>
+        <td><%= professor.nome %></td>
+        <td><%= professor.telefone %></td>
+        <td><%= professor.endereco %></td>
+        <td><%= professor.cpf %></td>
+        <td><%= professor.academia.nome if professor.academia %></td>
+        <td><%= link_to 'Show', professor %></td>
+        <td>
+        <%= link_to ' ', edit_professor_path(professor),  class: "glyphicon glyphicon-pencil" %>
+          <%= link_to ' ', professor, method: :delete, data: { confirm: 'Are you sure?' } , class: "glyphicon glyphicon-trash" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @professores, previous_label: "Anterior", next_label: "Próxima" %>
+<br/>
+<br>
+
+<%= link_to 'New Professor', new_professor_path %>

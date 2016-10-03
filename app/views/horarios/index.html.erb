@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Horarios</h1>
+<%= image_tag 'flexoes.gif', :width => '15%', :height => '15%'  %>
+<hr/> 
+  <%= render 'formbusca' %>
+<hr/>
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Professor</th>
+      <th>Academia</th>
+     <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @horarios.each do |horario| %>
+      <tr>
+        <td><%= horario.hora %></td>
+        <td><%= horario.professor.nome if horario.professor%></td>
+        <td><%= horario.academia.nome if horario.academia%></td>
+        <td>
+        <%= link_to ' ', edit_horario_path(horario),  class: "glyphicon glyphicon-pencil" %>
+          <%= link_to ' ', horario, method: :delete, data: { confirm: 'Are you sure?' } , class: "glyphicon glyphicon-trash" %>     
+        </td>
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @horarios, previous_label: "Anterior", next_label: "Próxima" %>
+<br/>
+<br>
+
+<%= link_to 'New Horario', new_horario_path %>

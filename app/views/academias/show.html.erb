@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @academia.nome %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @academia.endereco %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @academia.telefone %>
+</p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @academia.cnpj %>
+</p>
+
+<%= link_to 'Edit', edit_academia_path(@academia) %> |
+<%= link_to 'Back', academias_path %>
