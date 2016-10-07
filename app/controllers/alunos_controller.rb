@@ -81,14 +81,14 @@ class AlunosController < ApplicationController
     end
 
     def listar
-        @alunos = Aluno.all.paginate(page: params[:page], per_page: 3)
-        respond_to do |format|
-          format.html
-          format.pdf do
-          pdf = AlunosReport.new(@alunos)
-          send_data pdf.render, filename: 'AlunosListagem.pdf', :width => pdf.bounds.width,
-          type: 'application/pdf', disposition: :inline, :page_size => "A4",:page_layout => :portrait
-        end
-          end
+        @alunos = Aluno.all
+            respond_to do |format|
+               format.html
+               format.pdf do
+                  pdf = AlunosReporter.new(@alunos)
+                  send_data pdf.render, filename: 'AlunoListagem.pdf', :width =>pdf.bounds.width,
+                  type: 'application/pdf', disposition: :inline, :page_size => "A4",:page_layout => :portrait
+            end
+                end
     end
 end
